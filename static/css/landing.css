@@ -1,0 +1,118 @@
+/* Landing hero only */
+.hero {
+    display: block;
+    max-width: none;
+    margin: 0;
+    padding: 5rem 2rem 4.8rem;
+    text-align: center;
+}
+
+.hero-inner { max-width: 900px; margin: 0 auto; }
+
+.hero-badge {
+    align-items: center;
+    background: #e6f7f1;
+    border: 1px solid #9ce3cf;
+    border-radius: 999px;
+    color: #087459;
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 600;
+    gap: 0.65rem;
+    letter-spacing: 0;
+    margin: 0 0 3.1rem;
+    padding: 0.38rem 1.35rem;
+    text-transform: none;
+}
+
+.hero-badge span { background: #17a77b; border-radius: 50%; height: 0.6rem; width: 0.6rem; }
+
+.hero-title {
+    font-family: var(--font-body);
+    font-size: clamp(3.2rem, 5.6vw, 4.6rem);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.16;
+    margin: 0 0 1.8rem;
+}
+
+.hero-title em { color: #1b9f77; font-style: normal; }
+
+.hero-subtitle {
+    color: #676767;
+    font-size: 0;
+    line-height: 1.75;
+    margin: 0 auto 2.85rem;
+    max-width: 800px;
+}
+
+.hero-subtitle::after {
+    content: "Spendly helps you log expenses, spot patterns, and stay\A on budget \2014  without the spreadsheet headache.";
+    font-size: 1.2rem;
+    white-space: pre-line;
+}
+
+.hero-actions { justify-content: center; gap: 1.25rem; }
+
+.hero-actions .btn-primary,
+.hero-actions .btn-ghost {
+    background: #101010;
+    border: 1px solid #101010;
+    border-radius: 0.9rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    min-width: 19rem;
+    padding: 0.92rem 1.5rem;
+}
+
+.hero-actions .btn-primary:hover,
+.hero-actions .btn-ghost:hover { background: #242424; border-color: #242424; color: #fff; }
+
+.hero-visual { display: block; margin: 4.55rem auto 0; max-width: 1000px; }
+.mock-card { display: none; }
+
+.spending-preview {
+    background: #f8f8f6;
+    border: 1px solid #deded9;
+    border-radius: 1.35rem;
+    padding: 1.65rem;
+    text-align: left;
+}
+
+.preview-dots { display: flex; gap: 0.6rem; margin: 0 0 1.45rem; }
+.preview-dots span { background: #f28b8b; border-radius: 50%; height: 1rem; width: 1rem; }
+.preview-dots span:nth-child(2) { background: #f8c264; }
+.preview-dots span:nth-child(3) { background: #8ddbc3; }
+
+.preview-summary { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+.summary-card,
+.preview-breakdown { background: #fff; border: 1px solid #e1dfda; border-radius: 1rem; }
+.summary-card { display: flex; flex-direction: column; padding: 1.35rem 1.5rem; }
+.summary-card span,
+.summary-card small { color: #999; font-size: 0.95rem; }
+.summary-card strong { color: #111; font-size: 1.9rem; letter-spacing: -0.04em; line-height: 1.35; }
+.summary-card small { color: #e14848; }
+.summary-card:nth-child(2) small { color: #0da477; }
+
+.preview-breakdown { margin-top: 1rem; padding: 1.25rem 2.5rem; }
+.breakdown-row { align-items: center; display: grid; gap: 1.8rem; grid-template-columns: 4rem 1fr; }
+.breakdown-row + .breakdown-row { margin-top: 1rem; }
+.breakdown-row > span { color: #666; font-size: 1rem; text-align: right; }
+.breakdown-track { background: #efede8; border-radius: 999px; height: 0.8rem; overflow: hidden; }
+.breakdown-track i { background: #f5a021; border-radius: inherit; display: block; height: 100%; width: 72%; }
+.breakdown-row:nth-child(2) i { background: #398bd9; width: 48%; }
+.breakdown-row:nth-child(3) i { background: #8271dc; width: 38%; }
+
+@media (max-width: 700px) {
+    .hero { padding: 3rem 1rem; }
+    .hero-badge { font-size: 0.85rem; margin-bottom: 2rem; }
+    .hero-title { font-size: clamp(2.6rem, 12vw, 3.6rem); }
+    .hero-subtitle::after { font-size: 1.05rem; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn-primary, .hero-actions .btn-ghost { min-width: min(100%, 19rem); }
+    .hero-visual { margin-top: 3rem; }
+    .spending-preview { padding: 1rem; }
+    .preview-summary { grid-template-columns: 1fr; }
+    .preview-breakdown { padding: 1.25rem 1rem; }
+}

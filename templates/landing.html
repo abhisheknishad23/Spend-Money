@@ -2,14 +2,18 @@
 
 {% block title %}Spendly — Track Every Rupee{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <section class="hero">
     <div class="hero-inner">
-        <div class="hero-badge">Personal Finance Tracker</div>
+        <div class="hero-badge"><span></span>Free to use · No credit card needed</div>
         <h1 class="hero-title">
-            Know where your<br>
-            <em>money goes</em>
+            Track every rupee.<br>
+            <em>Know where it goes.</em>
         </h1>
         <p class="hero-subtitle">
             Log expenses, understand your spending patterns,
@@ -17,8 +21,8 @@
             one transaction at a time.
         </p>
         <div class="hero-actions">
-            <a href="{{ url_for('register') }}" class="btn-primary">Start tracking free</a>
-            <a href="{{ url_for('login') }}" class="btn-ghost">Sign in</a>
+            <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
+            <a href="#dashboard" class="btn-ghost">See how it works</a>
         </div>
     </div>
     <div class="hero-visual">
@@ -56,6 +60,19 @@
                     </div>
                     <span class="mock-amt">₹1,800</span>
                 </div>
+            </div>
+        </div>
+        <div class="spending-preview" id="dashboard">
+            <div class="preview-dots"><span></span><span></span><span></span></div>
+            <div class="preview-summary">
+                <div class="summary-card"><span>This month</span><strong>₹18,240</strong><small>+12% vs last</small></div>
+                <div class="summary-card"><span>Budget left</span><strong>₹6,760</strong><small>43% remaining</small></div>
+                <div class="summary-card"><span>Transactions</span><strong>34</strong><small>this month</small></div>
+            </div>
+            <div class="preview-breakdown">
+                <div class="breakdown-row"><span>Food</span><div class="breakdown-track"><i></i></div></div>
+                <div class="breakdown-row"><span>Travel</span><div class="breakdown-track"><i></i></div></div>
+                <div class="breakdown-row"><span>Bills</span><div class="breakdown-track"><i></i></div></div>
             </div>
         </div>
     </div>
