@@ -22,7 +22,7 @@
         </p>
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
-            <a href="#dashboard" class="btn-ghost">See how it works</a>
+            <a href="#how-it-works" class="btn-ghost" data-modal-open>See how it works</a>
         </div>
     </div>
     <div class="hero-visual">
@@ -78,6 +78,21 @@
     </div>
 </section>
 
+<div class="how-it-works-modal" id="how-it-works" aria-hidden="true">
+    <div class="how-it-works-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="how-it-works-title">
+        <button class="how-it-works-modal__close" type="button" aria-label="Close video" data-modal-close>&times;</button>
+        <h2 id="how-it-works-title">See how Spendly works</h2>
+        <div class="how-it-works-modal__video">
+            <iframe
+                title="Spendly overview"
+                data-video-src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
@@ -106,4 +121,37 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (() => {
+        const modal = document.getElementById('how-it-works');
+        const openButton = document.querySelector('[data-modal-open]');
+        const closeButton = modal.querySelector('[data-modal-close]');
+        const video = modal.querySelector('iframe');
+
+        const closeModal = () => {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            video.src = '';
+        };
+
+        openButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            video.src = video.dataset.videoSrc;
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            closeButton.focus();
+        });
+
+        closeButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    })();
+</script>
 {% endblock %}
